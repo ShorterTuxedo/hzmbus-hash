@@ -2,12 +2,12 @@ from selenium import webdriver
 import os
 import json
 class HZMHash():
-    def __init__(self, activate=False, url="https://i.hzmbus.com/web/index.html"):
+    def __init__(self, activate=False, url="https://i.hzmbus.com/webhtml/index.html"):
         self.activated = activate
         self.browser = None
         if activate:
             self.activate_browser(url)
-    def activate_browser(self, url="https://i.hzmbus.com/web/index.html"):
+    def activate_browser(self, url="https://i.hzmbus.com/webhtml/index.html"):
         stealthminjs = None
         with open('stealth.min.js', 'r') as f:
             stealthminjs = f.read()
