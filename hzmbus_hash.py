@@ -8,6 +8,9 @@ class HZMHash():
         if activate:
             self.activate_browser(url)
     def activate_browser(self, url="https://i.hzmbus.com/web/index.html"):
+        stealthminjs = None
+        with open('stealth.min.js', 'r') as f:
+            stealthminjs = f.read()
         if self.browser != None:
             self.browser.quit()
         try:
