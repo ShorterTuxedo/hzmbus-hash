@@ -2,12 +2,12 @@ from selenium import webdriver
 import os
 import json
 class HZMHash():
-    def __init__(self, activate=False):
+    def __init__(self, activate=False, url="https://i.hzmbus.com/web/index.html"):
         self.activated = activate
         self.browser = None
         if activate:
-            self.activate_browser()
-    def activate_browser(self):
+            self.activate_browser(url)
+    def activate_browser(self, url="https://i.hzmbus.com/web/index.html"):
         if self.browser != None:
             self.browser.quit()
         try:
@@ -28,7 +28,7 @@ class HZMHash():
             self.browser.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {'source': stealthminjs})
         except Exception as e:
             print("失败")
-        self.browser.get("https://i.hzmbus.com/web/index.html")
+        self.browser.get(url)
         self.activated = True
     def msk6(self, data):
         if self.activated and self.browser != None:
